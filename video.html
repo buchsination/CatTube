@@ -14,11 +14,11 @@
   <link rel="stylesheet" href="Styles/ct-general.css">
   <link rel="stylesheet" href="Styles/header.css">
   <link rel="stylesheet" href="Styles/ct-video.css">
+  <script type="text/javascript" src="Scripts/channels.js"></script>
 
 </head>
 
 <body class="video-body">
-
   <!-- Header -->
   <header class="header">
     <!-- Header left section-->
@@ -96,7 +96,12 @@
                 Purrfection
               </div>
               <div class="vid-abonnement">
-                30.000 Abonennten
+                <div>
+                  <p class="paras" id="channelAbos1"></p>
+                  <script>
+                    document.getElementById('channelAbos1').innerHTML = channelVideo1.abonnement;
+                  </script>
+                  <p>Abonennten</p>
               </div>
             </div>
               
@@ -111,18 +116,24 @@
         <div class="vid-description-channel-right"> 
           <!--Like Section-->  
           <div class="vid-like-section"> 
-            <div class="vid-like-left">
+            <div class="vid-like-left" onclick="likeCounter()">
               <img class="vid-icons" src="./Icons/like.png" alt="">
-                <p class="vid-p">Like</p>
-                <p class="like-count">51</p>
+                <p class="vid-p" id="channelParaLike">Likes</p>
+                <p class="paras, like-count, js-like" id="channelLikes"></p>
+                <script>
+                  document.getElementById('channelLikes').innerHTML = channelVideo1.likes;
+                </script>
             </div>
                                                 
             <div class="vert-line"> </div> 
                                                 
-            <div class="vid-like-right">
+            <div class="vid-like-right" onclick="dislikeCounter()">
               <img class="vid-icons" src="./Icons/dislike.png" alt="">
-              <p class="vid-p">Dislike</p>
-              <p class="like-count"> 10</p>
+              <p class="vid-p" id="channelParaDislike">Dislike</p>
+              <p class="paras, like-count, js-dislike" id="channelDislikes"></p>
+              <script>
+                document.getElementById('channelDislikes').innerHTML = channelVideo1.dislikes;
+              </script>
             </div>
             
           </div>
@@ -146,8 +157,13 @@
       </div> 
       
         <div class="vid-channel-description">
+          <div style="float:left; margin-right: 5px;"><p id="channelVid1"></p>
+            <script>
+              document.getElementById('channelVid1').innerHTML = channelVideo1.aufrufe;
+            </script>
+          </div>
           <p class="vid-channel-description-part">
-            705399 Aufrufe 15.08.2023 
+             Aufrufe 15.08.2023 
             <span class="vid-channel-description-link">
               Nautur ihre Schönheit und Ruhe
             </span>
