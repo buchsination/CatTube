@@ -43,6 +43,10 @@
   margin-top: 0;
 }
 
+.video-preview {
+  cursor: pointer;
+}
+
 .video-author,
 .video-stats {
   font-size: 12px;
