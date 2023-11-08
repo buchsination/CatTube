@@ -14,11 +14,12 @@
   <link rel="stylesheet" href="Styles/ct-general.css">
   <link rel="stylesheet" href="Styles/header.css">
   <link rel="stylesheet" href="Styles/ct-video.css">
-  <script type="text/javascript" src="Scripts/channels.js"></script>
+  <script type="text/javascript" src="Scripts/obj-chan1.js"></script>
+  <script type="text/javascript" src="Scripts/js-video.js"></script>
 
 </head>
 
-<body class="video-body">
+<body class="video-body" onload="loadChannel(); loadChannelVid()">
   <!-- Header -->
   <header class="header">
     <!-- Header left section-->
@@ -26,7 +27,7 @@
           <div class="hamburger-menu">
             <img class="hamburger-icon" src="./Icons/hamburgermenu.svg" alt="">
           </div>
-          <div>
+          <div onclick="location.href='cattube.html';">
             <img class="ct-logo" src="./Icons/ct-logo1.png" alt="" href="cattube.html">
           </div>
     
@@ -72,7 +73,7 @@
   <div> <!-- Video Part-->
     <div> <!-- video Placeholder-->
       <div>
-        <img class="video-watch" src="./Thumbnails/cat-01.jpg" alt="">
+        <img class="video-watch"  alt="" id="ChannelVideoBig">
       </div>
 
       <div class="vid-description-box">
@@ -88,25 +89,20 @@
                   
           <div> 
             <div">
-              <img class="vid-channel-pic" src="./Channel-Pictures/cpic01.png" alt="">
+              <img class="vid-channel-pic" id="channelPictureSmall" alt="" > 
             </div>
               
             <div>
-              <div class="vid-channelname"> 
-                Purrfection
+              <div class="vid-channelname" id="channelOwnerName"> 
               </div>
               <div class="vid-abonnement">
                 <div>
-                  <p class="paras" id="channelAbos1"></p>
-                  <script>
-                    document.getElementById('channelAbos1').innerHTML = channelVideo1.abonnement;
-                  </script>
+                  <p class="paras" id="channelAbos"></p>
                   <p>Abonennten</p>
               </div>
             </div>
-              
-            <button class="member-button"> Mitglied werden</button>
-            <button class="abo-button">Abonnieren</button>
+
+
               
 
 
@@ -114,15 +110,15 @@
 
         <!-- Right Part-->
         <div class="vid-description-channel-right"> 
+          <div class="vid-channel-buttons">
+            <button class="abo-button" onclick="abonnieren()"><p class="js-abo-status" id="button-Abo">Abonnieren</p></button>
+          </div>  
           <!--Like Section-->  
           <div class="vid-like-section"> 
             <div class="vid-like-left" onclick="likeCounter()">
               <img class="vid-icons" src="./Icons/like.png" alt="">
                 <p class="vid-p" id="channelParaLike">Likes</p>
                 <p class="paras, like-count, js-like" id="channelLikes"></p>
-                <script>
-                  document.getElementById('channelLikes').innerHTML = channelVideo1.likes;
-                </script>
             </div>
                                                 
             <div class="vert-line"> </div> 
@@ -131,9 +127,6 @@
               <img class="vid-icons" src="./Icons/dislike.png" alt="">
               <p class="vid-p" id="channelParaDislike">Dislike</p>
               <p class="paras, like-count, js-dislike" id="channelDislikes"></p>
-              <script>
-                document.getElementById('channelDislikes').innerHTML = channelVideo1.dislikes;
-              </script>
             </div>
             
           </div>
@@ -157,17 +150,18 @@
       </div> 
       
         <div class="vid-channel-description">
-          <div style="float:left; margin-right: 5px;"><p id="channelVid1"></p>
-            <script>
-              document.getElementById('channelVid1').innerHTML = channelVideo1.aufrufe;
-            </script>
+          <div class="paras"><p id="channelVid"></p>
           </div>
-          <p class="vid-channel-description-part">
-             Aufrufe 15.08.2023 
-            <span class="vid-channel-description-link">
-              Nautur ihre Schönheit und Ruhe
+          <p class="vid-channel-description-part" style="float:left; margin-right: 5px;">
+             <p> 
+              <p class="paras">Aufrufe</p>
+              <p class="paras">seit</p>
+             <p class="paras" id="videoDescriptionDate"></p> 
+            <span class="vid-channel-description-link" id="videoDescriptopnTitle">
             </span>
           </p>
+          <br>
+          <!-- diesen Teil noch irgendwie via Javascript von Objekt her einfügen */ -->  
           <p class="vid-channel-description-part">
             Besucht auch meine Homepage für mehr Bilder!
             <span class="vid-channel-description-link">
@@ -211,97 +205,268 @@
 
     </div>
   </div>
-      
-    <!--Video Sidebar Right-->
-    <div class="sidebar-right">
-      <div class="sidebar-right-grid">
-        <div class="sidebar-right-preview">
-          <div>
-            <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+  </div>
+
+      <!--Video Sidebar Right-->
+      <div class="sidebar-right">
+        <div class="sidebar-right-grid">
+          <div class="sidebar-right-preview">
+            <div>
+              <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+            </div>
           </div>
-        </div>
-        <div class="sidebar-right-box">
-          <div class="sidebar-right-title">
-            Beruhigende Natur
+          <div class="sidebar-right-box">
+            <div class="sidebar-right-title">
+              Beruhigende Natur
+            </div>
+            <div class="sidebar-right-author">
+              Purrfection &#10004;
+            </div>
+            <div class="sidebar-right-stat">
+              705k Aufrufe &#183; vor 1 Monat
+            </div>
           </div>
-          <div class="sidebar-right-author">
-            Purrfection &#10004;
+    
+          <div class="sidebar-right-preview">
+            <div>
+              <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+            </div>
           </div>
-          <div class="sidebar-right-stat">
-            705k Aufrufe &#183; vor 1 Monat
+          <div class="sidebar-right-box">
+            <div class="sidebar-right-title">
+              Beruhigende Natur
+            </div>
+            <div class="sidebar-right-author">
+              Purrfection &#10004;
+            </div>
+            <div class="sidebar-right-stat">
+              705k Aufrufe &#183; vor 1 Monat
+            </div>
           </div>
-        </div>
-  
-        <div class="sidebar-right-preview">
-          <div>
-            <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+    
+          <div class="sidebar-right-preview">
+            <div>
+              <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+            </div>
           </div>
-        </div>
-        <div class="sidebar-right-box">
-          <div class="sidebar-right-title">
-            Beruhigende Natur
+          <div class="sidebar-right-box">
+            <div class="sidebar-right-title">
+              Beruhigende Natur
+            </div>
+            <div class="sidebar-right-author">
+              Purrfection &#10004;
+            </div>
+            <div class="sidebar-right-stat">
+              705k Aufrufe &#183; vor 1 Monat
+            </div>
           </div>
-          <div class="sidebar-right-author">
-            Purrfection &#10004;
+    
+          <div class="sidebar-right-preview">
+            <div>
+              <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+            </div>
           </div>
-          <div class="sidebar-right-stat">
-            705k Aufrufe &#183; vor 1 Monat
+          <div class="sidebar-right-box">
+            <div class="sidebar-right-title">
+              Beruhigende Natur
+            </div>
+            <div class="sidebar-right-author">
+              Purrfection &#10004;
+            </div>
+            <div class="sidebar-right-stat">
+              705k Aufrufe &#183; vor 1 Monat
+            </div>
           </div>
-        </div>
-  
-        <div class="sidebar-right-preview">
-          <div>
-            <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+    
+          <div class="sidebar-right-preview">
+            <div>
+              <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+            </div>
           </div>
-        </div>
-        <div class="sidebar-right-box">
-          <div class="sidebar-right-title">
-            Beruhigende Natur
+          <div class="sidebar-right-box">
+            <div class="sidebar-right-title">
+              Beruhigende Natur
+            </div>
+            <div class="sidebar-right-author">
+              Purrfection &#10004;
+            </div>
+            <div class="sidebar-right-stat">
+              705k Aufrufe &#183; vor 1 Monat
+            </div>         
           </div>
-          <div class="sidebar-right-author">
-            Purrfection &#10004;
+
+          <div class="sidebar-right-preview">
+            <div>
+              <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+            </div>
           </div>
-          <div class="sidebar-right-stat">
-            705k Aufrufe &#183; vor 1 Monat
+          <div class="sidebar-right-box">
+            <div class="sidebar-right-title">
+              Beruhigende Natur
+            </div>
+            <div class="sidebar-right-author">
+              Purrfection &#10004;
+            </div>
+            <div class="sidebar-right-stat">
+              705k Aufrufe &#183; vor 1 Monat
+            </div>         
           </div>
-        </div>
-  
-        <div class="sidebar-right-preview">
-          <div>
-            <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+
+          <div class="sidebar-right-preview">
+            <div>
+              <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+            </div>
           </div>
-        </div>
-        <div class="sidebar-right-box">
-          <div class="sidebar-right-title">
-            Beruhigende Natur
+          <div class="sidebar-right-box">
+            <div class="sidebar-right-title">
+              Beruhigende Natur
+            </div>
+            <div class="sidebar-right-author">
+              Purrfection &#10004;
+            </div>
+            <div class="sidebar-right-stat">
+              705k Aufrufe &#183; vor 1 Monat
+            </div>         
           </div>
-          <div class="sidebar-right-author">
-            Purrfection &#10004;
+
+          <div class="sidebar-right-preview">
+            <div>
+              <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+            </div>
           </div>
-          <div class="sidebar-right-stat">
-            705k Aufrufe &#183; vor 1 Monat
+          <div class="sidebar-right-box">
+            <div class="sidebar-right-title">
+              Beruhigende Natur
+            </div>
+            <div class="sidebar-right-author">
+              Purrfection &#10004;
+            </div>
+            <div class="sidebar-right-stat">
+              705k Aufrufe &#183; vor 1 Monat
+            </div>         
           </div>
-        </div>
-  
-        <div class="sidebar-right-preview">
-          <div>
-            <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+
+          <div class="sidebar-right-preview">
+            <div>
+              <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+            </div>
           </div>
-        </div>
-        <div class="sidebar-right-box">
-          <div class="sidebar-right-title">
-            Beruhigende Natur
+          <div class="sidebar-right-box">
+            <div class="sidebar-right-title">
+              Beruhigende Natur
+            </div>
+            <div class="sidebar-right-author">
+              Purrfection &#10004;
+            </div>
+            <div class="sidebar-right-stat">
+              705k Aufrufe &#183; vor 1 Monat
+            </div>         
           </div>
-          <div class="sidebar-right-author">
-            Purrfection &#10004;
+
+          <div class="sidebar-right-preview">
+            <div>
+              <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+            </div>
           </div>
-          <div class="sidebar-right-stat">
-            705k Aufrufe &#183; vor 1 Monat
+          <div class="sidebar-right-box">
+            <div class="sidebar-right-title">
+              Beruhigende Natur
+            </div>
+            <div class="sidebar-right-author">
+              Purrfection &#10004;
+            </div>
+            <div class="sidebar-right-stat">
+              705k Aufrufe &#183; vor 1 Monat
+            </div>         
           </div>
+
+          <div class="sidebar-right-preview">
+            <div>
+              <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+            </div>
+          </div>
+          <div class="sidebar-right-box">
+            <div class="sidebar-right-title">
+              Beruhigende Natur
+            </div>
+            <div class="sidebar-right-author">
+              Purrfection &#10004;
+            </div>
+            <div class="sidebar-right-stat">
+              705k Aufrufe &#183; vor 1 Monat
+            </div>         
+          </div>
+
+          <div class="sidebar-right-preview">
+            <div>
+              <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+            </div>
+          </div>
+          <div class="sidebar-right-box">
+            <div class="sidebar-right-title">
+              Beruhigende Natur
+            </div>
+            <div class="sidebar-right-author">
+              Purrfection &#10004;
+            </div>
+            <div class="sidebar-right-stat">
+              705k Aufrufe &#183; vor 1 Monat
+            </div>         
+          </div>
+
+          <div class="sidebar-right-preview">
+            <div>
+              <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+            </div>
+          </div>
+          <div class="sidebar-right-box">
+            <div class="sidebar-right-title">
+              Beruhigende Natur
+            </div>
+            <div class="sidebar-right-author">
+              Purrfection &#10004;
+            </div>
+            <div class="sidebar-right-stat">
+              705k Aufrufe &#183; vor 1 Monat
+            </div>         
+          </div>
+
+          <div class="sidebar-right-preview">
+            <div>
+              <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+            </div>
+          </div>
+          <div class="sidebar-right-box">
+            <div class="sidebar-right-title">
+              Beruhigende Natur
+            </div>
+            <div class="sidebar-right-author">
+              Purrfection &#10004;
+            </div>
+            <div class="sidebar-right-stat">
+              705k Aufrufe &#183; vor 1 Monat
+            </div>         
+          </div>
+
+          <div class="sidebar-right-preview">
+            <div>
+              <img class="thumbnail-sidebar" src="./Thumbnails/cat-01.jpg" alt="">
+            </div>
+          </div>
+          <div class="sidebar-right-box">
+            <div class="sidebar-right-title">
+              Beruhigende Natur
+            </div>
+            <div class="sidebar-right-author">
+              Purrfection &#10004;
+            </div>
+            <div class="sidebar-right-stat">
+              705k Aufrufe &#183; vor 1 Monat
+            </div>         
+          </div>
+
         </div>
       </div>
-    </div>
-  </div>
 </div>
 
 
