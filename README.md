@@ -1,2 +1,0 @@
-# CatTube
-Youtube for Cats
