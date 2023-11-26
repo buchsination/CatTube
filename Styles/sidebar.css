@@ -12,6 +12,8 @@
   width: 150px;
   z-index: 200;
   padding-top: 5px;
+  overflow:scroll; 
+  height: auto;
 }
 
 .sidebar-link {
