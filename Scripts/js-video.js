@@ -20,7 +20,6 @@ function loadChannelVid() {
   document.getElementById('videoDescriptionDate').innerHTML = channelVideo.datum;
   // lade vollen VideoTitel
   document.getElementById('videoDescriptopnTitle').innerHTML = channelVideo.titel;
-  
 }
 
 // "./Thumbnails/cat-01.jpg"

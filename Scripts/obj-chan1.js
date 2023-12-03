@@ -10,7 +10,7 @@ const channelVideo = {
   channelVideoThumb: './Thumbnails/cat-01.jpg',
   laenge: '14:20',
   datum: '15.08.2023',
-  titel: 'Natur ihre Schönheit und Ruhe'
+  titel: 'Beruhigende Natur'
 };
 
 const channelOwner = {
