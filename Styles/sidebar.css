@@ -1,0 +1,102 @@
+<<<<<<< HEAD
+.trennlinie {
+  color: rgb(88, 88, 88);
+}
+
+/* Sidebar Hauptseite */
+.sidebar {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  top: 60px;
+  background-color: white;
+  width: 150px;
+  z-index: 200;
+  padding-top: 5px;
+  overflow:scroll; 
+  height: auto;
+}
+
+.sidebar-link {
+  background-color: white;
+  height: 74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+
+.sidebar-link:hover {
+  background-color: rgb(232, 230, 230);
+  border-radius: 10px;
+}
+
+.sidebar-link img {
+  height: 24px;
+  margin-bottom: 4px;
+}
+
+.sidebar-link div {
+  font-size: 12px;
+}
+
+.sidebar-title {
+  font-size: 20px;
+  font-weight: 400;
+  color: rgb(147, 147, 147);
+  padding-left: 25px;
+  margin: 10px 0px 0px 0px;
+=======
+.trennlinie {
+  color: rgb(88, 88, 88);
+}
+
+/* Sidebar Hauptseite */
+.sidebar {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  top: 60px;
+  background-color: white;
+  width: 150px;
+  z-index: 200;
+  padding-top: 5px;
+  overflow:scroll; 
+  height: auto;
+}
+
+.sidebar-link {
+  background-color: white;
+  height: 74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+
+.sidebar-link:hover {
+  background-color: rgb(232, 230, 230);
+  border-radius: 10px;
+}
+
+.sidebar-link img {
+  height: 24px;
+  margin-bottom: 4px;
+}
+
+.sidebar-link div {
+  font-size: 12px;
+}
+
+.sidebar-title {
+  font-size: 20px;
+  font-weight: 400;
+  color: rgb(147, 147, 147);
+  padding-left: 25px;
+  margin: 10px 0px 0px 0px;
+>>>>>>> d2fdd83994fa993d8f7da7202744bc98248d7ff7
+}
